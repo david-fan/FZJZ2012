@@ -11,8 +11,8 @@ package SQ
 			this.type=type;
 		}
 		
-		public function addAnswer(answer:String,right:Boolean):void{
-			this.answers.push({a:answer,r:right});
+		public function addAnswer(answer:String,right:Boolean,sound:String=""):void{
+			this.answers.push({a:answer,r:right,s:sound});
 		}
 	}
 }

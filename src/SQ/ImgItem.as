@@ -5,14 +5,14 @@ package SQ
 	import com.david.ui.MDirection;
 	import com.david.ui.MImage;
 	
-	public class ImgItem extends MBox implements IAnswer
+	public class ImgItem extends AnswerItem implements IAnswer
 	{
 		private var cb:MCheckBox;
 		private var r:Boolean;
 		public var img:MImage;
-		public function ImgItem(url:String,r:Boolean)
+		public function ImgItem(url:String,r:Boolean,sound:String)
 		{
-			super(false,MDirection.Vertical,10,true);
+            super(sound);
 			cb=new MCheckBox(new Asset.cbbg(),new Asset.cbc());
 			img=new MImage(url);
 			this.addChild(img);

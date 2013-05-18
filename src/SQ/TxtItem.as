@@ -6,14 +6,14 @@ package SQ
 	import com.david.ui.MMachineTextBlock;
 	import com.david.ui.core.MSprite;
 	
-	public class TxtItem extends MBox implements IAnswer
+	public class TxtItem extends AnswerItem implements IAnswer
 	{
 		private var cb:MCheckBox;
 		private var r:Boolean;
 		private var txtblock:MMachineTextBlock;
-		public function TxtItem(txt:String,r:Boolean)
+		public function TxtItem(txt:String,r:Boolean,sound:String)
 		{
-			super(false,MDirection.Horizon,10,true);
+            super(sound);
 			cb=new MCheckBox(new Asset.cbbg(),new Asset.cbc());
 			txtblock=new MMachineTextBlock(txt);
 			this.addChild(cb);
