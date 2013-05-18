@@ -85,8 +85,8 @@ package {
 			_container = new MSprite();
 			AppLayer.SceneLayer.addChild(_container);
 			
-			//var acts:Array=[onJTClick,onMGClick,onFNClick,onACClick,onEQClick,onWFClick,onPSClick];
-			var acts:Array=[onPSClick];
+			//var acts:Array=[onJTClick,onMGClick,onFNClick,onACClick,onEQClick,onWFClick,onPSClick,onSQClick];
+			var acts:Array=[onSQClick];
 			var index:int=Math.floor(acts.length*Math.random());
 			(acts[index] as Function).apply(this,[null]);
 			
