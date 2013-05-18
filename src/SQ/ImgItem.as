@@ -10,7 +10,7 @@ package SQ
 		private var cb:MCheckBox;
 		private var r:Boolean;
 		public var img:MImage;
-		public function ImgItem(url:String,r:Boolean,sound:String)
+		public function ImgItem(url:String,r:Boolean,sound:String="")
 		{
             super(sound);
 			cb=new MCheckBox(new Asset.cbbg(),new Asset.cbc());

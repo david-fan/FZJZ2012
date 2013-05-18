@@ -11,7 +11,7 @@ package SQ
 		private var cb:MCheckBox;
 		private var r:Boolean;
 		private var txtblock:MMachineTextBlock;
-		public function TxtItem(txt:String,r:Boolean,sound:String)
+		public function TxtItem(txt:String,r:Boolean,sound:String="")
 		{
             super(sound);
 			cb=new MCheckBox(new Asset.cbbg(),new Asset.cbc());
