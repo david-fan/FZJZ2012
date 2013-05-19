@@ -19,9 +19,9 @@ import mx.utils.StringUtil;
 public class AnswerItem extends MBox {
     private var playSound:Sound;
 
-    public function AnswerItem(sound:String=null) {
-        super(false, MDirection.Vertical, 10, true);
-        if (sound==null)
+    public function AnswerItem(direction:String, sound:String = null) {
+        super(false, direction, 10, true);
+        if (sound == null)
             return;
         playSound = new Sound(new URLRequest(sound));
         addEventListener(MouseEvent.ROLL_OVER, function (e:MouseEvent):void {

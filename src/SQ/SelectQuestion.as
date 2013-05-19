@@ -20,7 +20,7 @@ public class SelectQuestion extends MSprite {
         bord = new Bord();
         this.addChild(bord);
 
-        var q:Question = new Question("家中发生煤气泄漏后，怎么做是正确的呢？",1,"SQ/asset/a0.mp3");
+        var q:Question = new Question("家中发生煤气泄漏后，怎么做是正确的呢？", 1, "SQ/asset/a0.mp3");
         q.addAnswer("打电话报警", false);
         q.addAnswer("打开风扇换气", false);
         q.addAnswer("打开窗户，大声呼救", true);
