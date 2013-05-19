@@ -1,6 +1,7 @@
 package SQ
 {
-	import flash.text.engine.FontWeight;
+import flash.events.MouseEvent;
+import flash.text.engine.FontWeight;
 	import com.david.ui.MBox;
 	import com.david.ui.MCheckBox;
 	import com.david.ui.MDirection;
@@ -10,18 +11,22 @@ package SQ
 	
 	public class Bord extends MSprite
 	{
-		private var _question:MStrokeMachineText;
+        private var _question:Question;
+		private var _questionText:MStrokeMachineText;
 		private var _tile:MBox;
 		public function Bord()
 		{
 			super();
-			_question=new MStrokeMachineText("",22,0xff00ff,500,0xffff00,"SimHei",FontWeight.BOLD);
-			this.addChildXY(_question,20,20);
-			
+			_questionText=new MStrokeMachineText("",22,0xff00ff,500,0xffff00,"SimHei",FontWeight.BOLD);
+			this.addChildXY(_questionText,20,20);
+			_questionText.addEventListener(MouseEvent.ROLL_OVER, function(e:MouseEvent):void{
+                _question.playSound();
+            });
 		}
 		
 		public function SetData(value:Question):void{
-			_question.text=value.title;
+            _question=value;
+			_questionText.text=value.title;
 			if(_tile&&this.contains(_tile))
 				this.removeChild(_tile);
 			if(value.type==1){
@@ -38,7 +43,7 @@ package SQ
 					var ii:ImgItem=new ImgItem(item.a,item.r);
 					_tile.addChild(ii);
 				}
-			}this.addChildXY(_tile,40,60);
+			}this.addChildXY(_tile,40,60);//_questionText.x+_questionText.height+10
 		}
 		
 		public function getCurrentQuestionOK():Boolean{
