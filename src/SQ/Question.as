@@ -29,7 +29,7 @@ public class Question {
         }
     }
 
-    public function addAnswer(answer:String, right:Boolean, sound:String = ""):void {
+    public function addAnswer(answer:String, right:Boolean, sound:String = null):void {
         this.answers.push({a: answer, r: right, s: sound});
     }
 }

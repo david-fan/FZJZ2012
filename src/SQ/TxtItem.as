@@ -5,6 +5,8 @@ import com.david.ui.MDirection;
 import com.david.ui.MMachineTextBlock;
 import com.david.ui.core.MSprite;
 
+import flash.events.MouseEvent;
+
 public class TxtItem extends AnswerItem implements IAnswer {
     private var cb:MCheckBox;
     private var r:Boolean;
@@ -16,6 +18,10 @@ public class TxtItem extends AnswerItem implements IAnswer {
         txtblock = new MMachineTextBlock(txt);
         this.addChild(cb);
         this.addChild(txtblock);
+        txtblock.mouseEnabled=true;
+        txtblock.addEventListener(MouseEvent.ROLL_OVER, function(e:MouseEvent):void{
+            playSound();
+        });
         this.r = r;
     }
 

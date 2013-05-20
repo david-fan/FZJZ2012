@@ -12,21 +12,28 @@ import com.david.ui.MDirection;
 import flash.events.MouseEvent;
 
 import flash.media.Sound;
+import flash.media.SoundChannel;
 import flash.net.URLRequest;
 
 import mx.utils.StringUtil;
 
 public class AnswerItem extends MBox {
-    private var playSound:Sound;
+    private var _sound:Sound;
+    private var _soundChannel:SoundChannel;
 
     public function AnswerItem(direction:String, sound:String = null) {
         super(false, direction, 10, true);
+        this.mouseEnabled = true;
         if (sound == null)
             return;
-        playSound = new Sound(new URLRequest(sound));
-        addEventListener(MouseEvent.ROLL_OVER, function (e:MouseEvent):void {
-            playSound.play();
-        });
+        _sound = new Sound(new URLRequest(sound));
+    }
+
+    protected function playSound():void {
+        if (_soundChannel)
+            _soundChannel.stop();
+        if (_sound)
+            _soundChannel = _sound.play();
     }
 }
 }

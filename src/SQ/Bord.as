@@ -32,14 +32,14 @@ public class Bord extends MSprite {
         if (value.type == 1) {
             _tile = new MBox(false, MDirection.Vertical, 10, false);
             for each(var item:Object in value.answers) {
-                var ti:TxtItem = new TxtItem(item.a, item.r);
+                var ti:TxtItem = new TxtItem(item.a, item.r,item.s);
                 _tile.addChild(ti);
             }
         }
         else {
             _tile = new MBox(false, MDirection.Horizon, 10, false);
             for each(var item:Object in value.answers) {
-                var ii:ImgItem = new ImgItem(item.a, item.r);
+                var ii:ImgItem = new ImgItem(item.a, item.r,item.s);
                 _tile.addChild(ii);
             }
         }
