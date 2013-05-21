@@ -18,7 +18,7 @@ public class Bord extends MSprite {
         super();
         _questionText = new MStrokeMachineText("", 22, 0xff00ff, 500, 0xffff00, "SimHei", FontWeight.BOLD);
         this.addChildXY(_questionText, 20, 20);
-        _questionText.mouseEnabled=true;
+        _questionText.mouseEnabled = true;
         _questionText.addEventListener(MouseEvent.ROLL_OVER, function (e:MouseEvent):void {
             _question.playSound();
         });
@@ -27,29 +27,33 @@ public class Bord extends MSprite {
     public function SetData(value:Question):void {
         _question = value;
         _questionText.text = value.title;
-        if (_tile && this.contains(_tile))
-            this.removeChild(_tile);
+        if (_tile) {
+            if (this.contains(_tile))
+                this.removeChild(_tile);
+            while (_tile.numChildren > 0)
+                _tile.removeChildAt(0);
+        }
         if (value.type == 1) {
             _tile = new MBox(false, MDirection.Vertical, 10, false);
             for each(var item:Object in value.answers) {
-                var ti:TxtItem = new TxtItem(item.a, item.r,item.s);
+                var ti:TxtItem = new TxtItem(item.a, item.r, item.s);
                 _tile.addChild(ti);
             }
         }
         else {
             _tile = new MBox(false, MDirection.Horizon, 10, false);
             for each(var item:Object in value.answers) {
-                var ii:ImgItem = new ImgItem(item.a, item.r,item.s);
+                var ii:ImgItem = new ImgItem(item.a, item.r, item.s);
                 _tile.addChild(ii);
             }
         }
-        this.addChildXY(_tile, 40, _questionText.x+_questionText.height+10);
+        this.addChildXY(_tile, 40, _questionText.x + _questionText.height + 10);
     }
 
     public function getCurrentQuestionOK():Boolean {
         var ok:Boolean = true;
-        while (_tile.numChildren > 0) {
-            var c:IAnswer = _tile.removeChildAt(0) as IAnswer;
+        for (var i:int = 0; i < _tile.numChildren; i++) {
+            var c:IAnswer = _tile.getChildAt(0) as IAnswer;
             ok &&= c.ok;
         }
         return ok;

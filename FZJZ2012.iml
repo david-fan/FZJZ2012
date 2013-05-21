@@ -18,7 +18,22 @@
           <sdk name="AIRSDK_3.7" />
         </dependencies>
         <compiler-options />
-        <packaging-air-desktop package-file-name="FZJZ2012" />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/FZJZ2012-app.xml" package-file-name="FZJZ2012">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/AC" path-in-package="AC" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/asset" path-in-package="asset" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/EQ" path-in-package="EQ" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/FS" path-in-package="FS" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/icon" path-in-package="icon" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/JT" path-in-package="JT" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/MG" path-in-package="MG" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/PS" path-in-package="PS" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/selib" path-in-package="selib" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/SQ" path-in-package="SQ" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/WF" path-in-package="WF" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin/start.swf" path-in-package="start.swf" />
+          </files-to-package>
+        </packaging-air-desktop>
         <packaging-android />
         <packaging-ios />
       </configuration>

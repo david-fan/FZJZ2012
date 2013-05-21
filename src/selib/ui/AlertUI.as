@@ -17,27 +17,31 @@ package selib.ui {
 	public class AlertUI extends MUIComponent {
 		public var closeBtn : MButton;
 		public var rule : MStrokeMachineText;
+        private var _closeCall:Function;
 
-		public function AlertUI(mouseEnabled : Boolean = false) {
-			super(mouseEnabled);
+		public function AlertUI(closecall:Function=null) {
+			super(false);
 			this.background = new Asset.ruleClass();
 			closeBtn = new MButton(new Asset.closeBtnClass());
 			addChildXY(closeBtn, 275, 0);
 			rule = new MStrokeMachineText();
-			addChildXY(rule, 20, 50);
+			addChildXY(rule, 20, 70);
 
 			closeBtn.addEventListener(MouseEvent.CLICK, close);
-		}
+		    _closeCall=closecall;
+        }
 
 		private function close(e : MouseEvent) : void {
 			UtilManager.popUpUtil.removePopUp(this);
+            if(_closeCall)
+                _closeCall();
 		}
 
 		private static var _instances : Dictionary = new Dictionary();
 
-		public static function getInstance(name : String) : AlertUI {
+		public static function getInstance(name : String,closecall:Function=null) : AlertUI {
 			if (_instances[name] == null) {
-				_instances[name] = new AlertUI();
+				_instances[name] = new AlertUI(closecall);
 			}
 
 			return _instances[name];

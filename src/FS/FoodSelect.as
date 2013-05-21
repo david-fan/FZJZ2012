@@ -84,7 +84,8 @@ package FS {
 			var record:Record=RecordUtil.ReturnTop5Record(_records,_timer.time);
 			if(record.top5){
 				RecordUtil.saveRecord("swsj.xml",record.records);
-			}FinishAlert.show(record.top5,this);
+			}
+            FinishAlert.show(record.top5,this);
 		}
 
 		private function onFS(e : Event) : void {
